@@ -14,7 +14,7 @@ class TrainingActivityController extends Controller
      */
     public function index()
     {
-        //
+        return view('Training.Index');
     }
 
     /**
@@ -35,7 +35,7 @@ class TrainingActivityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**

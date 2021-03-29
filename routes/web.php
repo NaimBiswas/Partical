@@ -24,3 +24,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/register-activity', [TrainingActivityController::class, 'index'])->name('register-activity');
+Route::post('/register-training', [TrainingActivityController::class, 'store'])->name('register-training');
