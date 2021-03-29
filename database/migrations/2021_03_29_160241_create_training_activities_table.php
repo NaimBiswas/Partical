@@ -15,6 +15,12 @@ class CreateTrainingActivitiesTable extends Migration
     {
         Schema::create('training_activities', function (Blueprint $table) {
             $table->id();
+            $table->string('skill');
+            $table->string('title');
+            $table->string('description');
+            $table->timestamp('start_date');
+            $table->timestamp('end_date');
+            $table->string("participants");
             $table->timestamps();
         });
     }
