@@ -45,6 +45,20 @@
                     required />
             </div>
 
+
+            <div class="mt-4">
+                <x-jet-label for="profile"
+                    value="{{ __('Choose a profile') }}" />
+                <select required
+                    name="profile">
+                    <option value="board">Select A Profile</option>
+                    <option value="board">Board</option>
+                    <option value="expert">Expert</option>
+                    <option value="trainer">Trainer</option>
+                    <option value="competitor">Competitor</option>
+                </select>
+            </div>
+
             <div class="mt-4">
                 <x-jet-label for="password"
                     value="{{ __('Password') }}" />
