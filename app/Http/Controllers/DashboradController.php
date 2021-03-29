@@ -10,6 +10,6 @@ class DashboradController extends Controller
     public function index()
     {
         $data = TrainingActivity::all();
-        return view('dashboard', compact('data'));
+        return view('Expert', compact('data'));
     }
 }

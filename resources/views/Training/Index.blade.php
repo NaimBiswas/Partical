@@ -23,9 +23,12 @@
                 autofocus
                 id="">
                 <option value="">Select A Skill</option>
-                <option value="skillOne">skillOne</option>
-                <option value="skillTwo">skillTwo</option>
-                <option value="skillThree">skillThree</option>
+                <option value="skillOne"
+                    id="1">skillOne</option>
+                <option value="skillTwo"
+                    id="2">skillTwo</option>
+                <option value="skillThree"
+                    id="3">skillThree</option>
             </select>
         </div>
 

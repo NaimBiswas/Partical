@@ -15,7 +15,8 @@ class TrainingActivityController extends Controller
      */
     public function index()
     {
-        return view('Training.Index');
+        $data = TrainingActivity::all();
+        return view('Training.Index', compact('data'));
     }
 
     /**
@@ -36,6 +37,7 @@ class TrainingActivityController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate($request, [
             'title' => 'required|unique:training_activities,title|max:200',
             'skill' => 'required',
