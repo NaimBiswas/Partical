@@ -36,14 +36,19 @@ class TrainingActivityController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'title' => 'required' | 'unique' | 'max:200',
+        $this->validate($request, [
+            'title' => 'required|unique:training_activities,title|max:200',
             'skill' => 'required',
             'description' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
             'participants' => 'required',
         ]);
+        // $this->validate($request, [
+        //     'name' => 'required|min:3|unique:categories,name',
+        //     'images' => 'required',
+        // ]);
+
 
 
         TrainingActivity::Create([
@@ -54,7 +59,7 @@ class TrainingActivityController extends Controller
             'end_date' => $request->end_date,
             'participants' => $request->participants,
         ]);
-        return redirect()->back();
+        return redirect()->back()->with("success", 'Successfully Create A Shedule');
     }
 
     /**

@@ -1,5 +1,10 @@
 @extends('dashboard')
 @section('dContent')
+
+@include(' include.error')
+
+
+
 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mb-3 ">
     <h2 class="m-4 text-gray-700 text-center uppercase font-bold">Add A Training Activity</h2>
 </div>
