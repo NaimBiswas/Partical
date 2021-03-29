@@ -18,8 +18,8 @@ class CreateTrainingActivitiesTable extends Migration
             $table->string('skill');
             $table->string('title');
             $table->string('description');
-            $table->timestamp('start_date');
-            $table->timestamp('end_date');
+            $table->string('start_date');
+            $table->string('end_date');
             $table->string("participants");
             $table->timestamps();
         });

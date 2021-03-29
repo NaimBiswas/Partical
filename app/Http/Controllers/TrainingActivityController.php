@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
 use App\Models\TrainingActivity;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,25 @@ class TrainingActivityController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $validator = Validator::make($request->all(), [
+            'title' => 'required' | 'unique' | 'max:200',
+            'skill' => 'required',
+            'description' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'participants' => 'required',
+        ]);
+
+
+        TrainingActivity::Create([
+            'skill' => $request->skill,
+            'title' => $request->title,
+            'description' => $request->description,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'participants' => $request->participants,
+        ]);
+        return redirect()->back();
     }
 
     /**
