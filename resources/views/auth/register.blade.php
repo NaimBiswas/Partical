@@ -37,7 +37,7 @@
             <div class="mt-4">
                 <x-jet-label for="username"
                     value="{{ __('User Name') }}" />
-                <x-jet-input id="email"
+                <x-jet-input id="username"
                     class="block mt-1 w-full"
                     type="text"
                     name="username"
