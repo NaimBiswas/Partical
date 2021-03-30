@@ -16,12 +16,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// This is Home Page
 
 Route::get('/', function () {
-    return view('welcome');
+   return view('welcome');
 });
 
-// For Home Page 
+// For Home Page
 Route::get('/dashboard', [DashboradController::class, 'index'])->name('dashboard');
 
 // For Shedule  or Activities
@@ -37,7 +38,7 @@ Route::post('/update-shedule/{id}', [TrainingActivityController::class, 'update'
 
 Route::any('/detele-activity/{id}', [TrainingActivityController::class, 'destroy'])->name('detele-activity');
 
-// For Skill 
+// For Skill
 
 Route::get('/skill', [SkillController::class, 'index'])->name('skill');
 
