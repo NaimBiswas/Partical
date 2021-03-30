@@ -20,11 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('Expert');
-// })->name('dashboard');
+
 Route::get('/dashboard', [DashboradController::class, 'index'])->name('dashboard');
 
 
 Route::get('/register-activity', [TrainingActivityController::class, 'index'])->name('register-activity');
+
 Route::post('/register-training', [TrainingActivityController::class, 'store'])->name('register-training');
