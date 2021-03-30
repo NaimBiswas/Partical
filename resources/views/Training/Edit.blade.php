@@ -11,7 +11,7 @@
 
 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg ">
     <form method="POST"
-        action="{{ route('register-training') }}">
+        action="{{ route('update-shedule', $FindData->id) }}">
         @csrf
 
         <div class="mb-4 mx-4">
@@ -23,6 +23,8 @@
                 autofocus
                 id="">
                 <option value="">Select A Skill</option>
+                <option selected
+                    value="{{ $FindData->skill }}">{{ $FindData->skill }}</option>
                 <option value="skillOne">skillOne</option>
                 <option value="skillTwo">skillTwo</option>
                 <option value="skillThree">skillThree</option>
@@ -37,7 +39,7 @@
                 class="block mt-1 w-full"
                 type="text"
                 name="title"
-                :value="old('title')"
+                value="{{ $FindData->title }}"
                 required
                 autofocus />
 
@@ -51,10 +53,9 @@
                 class="block mt-1 w-full"
                 type="text"
                 name="description"
-                :value="old('description')"
                 required
                 autofocus>
-
+            {{ $FindData->description }}"
             </textarea>
 
         </div>
@@ -68,7 +69,7 @@
                     class="block mt-1 w-full"
                     type="date"
                     name="start_date"
-                    :value="old('start_date')"
+                    value="{{ $FindData->start_date }}"
                     required
                     autofocus />
             </div>
@@ -80,7 +81,7 @@
                     class="block mt-1 w-full  "
                     type="date"
                     name="end_date"
-                    :value="old('start_date')"
+                    value="{{ $FindData->end_date }}"
                     required
                     autofocus />
             </div>
@@ -96,6 +97,8 @@
                 autofocus
                 id="">
                 <option value="">Select Participants</option>
+                <option selected
+                    value="{{ $FindData->participants }}">{{ $FindData->participants }}</option>
                 <option value="skillOne">skillOne</option>
                 <option value="skillTwo">skillTwo</option>
                 <option value="skillThree">skillThree</option>
@@ -104,7 +107,7 @@
 
         <button type="submit"
             class="my-2 mx-4  mb-5 bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Add Activity
+            Update Activity
         </button>
 
     </form>

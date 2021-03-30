@@ -1,5 +1,6 @@
 @extends('dashboard')
 @section('dContent')
+@include('include.error')
 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg flex justify-between mb-5">
     @if (Auth::user()->profile === 'expert')
     <h2 class="m-4 text-gray-700">Register A Training Activity</h2>
@@ -41,14 +42,11 @@
                 <td class="border px-4 py-2">{{$item->participants}}</td>
                 @if (Auth::user()->profile == 'expert')
                 <td class="border px-4 py-2 mt-2">
-                    <a href="{{Route('register-activity')}}"
+                    <a href="{{Route('edit-shedule' , $item->id)}}"
                         class=" my-2 mx-2 bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         Edit
                     </a>
-                    <a href="{{Route('register-activity')}}"
-                        class="my-2 mx-2 bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                        Update
-                    </a>
+
                     <a href="{{Route('register-activity')}}"
                         class="my-2 mx-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                         Delete

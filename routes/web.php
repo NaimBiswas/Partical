@@ -27,3 +27,8 @@ Route::get('/dashboard', [DashboradController::class, 'index'])->name('dashboard
 Route::get('/register-activity', [TrainingActivityController::class, 'index'])->name('register-activity');
 
 Route::post('/register-training', [TrainingActivityController::class, 'store'])->name('register-training');
+
+
+Route::get('/edit-shedule/{id}', [TrainingActivityController::class, 'edit'])->name('edit-shedule');
+
+Route::post('/update-shedule/{id}', [TrainingActivityController::class, 'update'])->name('update-shedule');

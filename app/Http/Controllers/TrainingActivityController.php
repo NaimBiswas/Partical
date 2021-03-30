@@ -81,9 +81,10 @@ class TrainingActivityController extends Controller
      * @param  \App\Models\TrainingActivity  $trainingActivity
      * @return \Illuminate\Http\Response
      */
-    public function edit(TrainingActivity $trainingActivity)
+    public function edit($id)
     {
-        //
+        $FindData = TrainingActivity::where('id', $id)->get()->first();
+        return view('Training.Edit', compact('FindData'));
     }
 
     /**
@@ -95,7 +96,23 @@ class TrainingActivityController extends Controller
      */
     public function update(Request $request, TrainingActivity $trainingActivity)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|max:200',
+            'skill' => 'required',
+            'description' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'participants' => 'required',
+        ]);
+
+        $trainingActivity->skill = $request->skill;
+        $trainingActivity->title = $request->title;
+        $trainingActivity->description = $request->description;
+        $trainingActivity->start_date = $request->start_date;
+        $trainingActivity->end_date = $request->end_date;
+        $trainingActivity->participants = $request->participants;
+        $trainingActivity->save();
+        return redirect()->route('dashboard')->with('success', ' Post Updated Success');
     }
 
     /**
