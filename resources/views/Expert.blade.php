@@ -80,7 +80,7 @@
 
 
 
-
+{{-- skill table here  --}}
 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-5">
 
     <h2 class="m-4 text-gray-700 text-center">Show All Skill</h2>
