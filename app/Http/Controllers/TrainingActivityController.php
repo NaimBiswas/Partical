@@ -136,7 +136,7 @@ class TrainingActivityController extends Controller
 
 
         $input = $request->all();
-        $participants = $input['participants'];
+        $participants = $input['$trainingActivity->'];
         $input['participants'] = implode(',', $participants);
 
 
