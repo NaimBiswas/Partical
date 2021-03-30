@@ -35,7 +35,14 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|unique:skills,name',
+        ]);
+        Skill::create([
+            'name' => $request->name,
+
+        ]);
+        return back()->with('success', 'Successfully Added a Skill');
     }
 
     /**

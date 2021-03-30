@@ -10,6 +10,18 @@
         Add Activity
     </a>
     @endif
+
+</div>
+<div class="bg-white overflow-hidden shadow-xl sm:rounded-lg flex justify-between mb-5">
+    @if (Auth::user()->profile === 'board')
+    <h2 class="m-4 text-gray-700">Register A Skill</h2>
+
+    <a href="{{Route('skill')}}"
+        class="my-2 mx-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Add Skill
+    </a>
+    @endif
+
 </div>
 
 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg ">
@@ -56,6 +68,50 @@
                     </a>
 
 
+                </td>
+                @endif
+            </tr>
+            @endforeach
+
+        </tbody>
+    </table>
+
+</div>
+
+
+
+
+<div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-5">
+
+    <h2 class="m-4 text-gray-700 text-center">Show All Skill</h2>
+
+
+    <table class=" m-auto mb-5 ">
+        <thead>
+            <tr>
+                <th class="px-4 py-2">ID</th>
+                <th class="px-4 py-2">Skill Id</th>
+
+                <th class="px-4 py-2">Skill</th>
+                @if (Auth::user()->profile == 'board')
+                <th class="px-4 py-2">Action</th>
+                @endif
+            </tr>
+        </thead>
+        <tbody>
+            <?php $i = ''; ?>
+            @foreach ($skills as $skill)
+
+            <tr>
+                <td class="border px-4 py-2"><?php echo ++$i;  ?></td>
+                <td class="border px-4 py-2">{{$skill->id}}</td>
+                <td class="border px-4 py-2">{{$skill->name}}</td>
+                @if (Auth::user()->profile == 'board')
+                <td class="border px-4 py-2 mt-2">
+                    <a href="{{Route('detele-activity', $item->id)}}"
+                        class="my-2 mx-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                        Delete
+                    </a>
                 </td>
                 @endif
             </tr>

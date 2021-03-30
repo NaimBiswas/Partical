@@ -39,3 +39,5 @@ Route::any('/detele-activity/{id}', [TrainingActivityController::class, 'destroy
 
 
 Route::get('/skill', [SkillController::class, 'index'])->name('skill');
+
+Route::post('/add-skill', [SkillController::class, 'store'])->name('add-skill');
