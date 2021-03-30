@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Skill;
 use Validator;
 use App\Models\TrainingActivity;
 use App\Models\User;
@@ -17,10 +18,9 @@ class TrainingActivityController extends Controller
     public function index()
     {
         $competitorData = User::where('profile', 'competitor')->get();
-
-
+        $skills = Skill::all();
         $data = TrainingActivity::all();
-        return view('Training.Index', compact(['data', 'competitorData']));
+        return view('Training.Index', compact(['data', 'competitorData', 'skills']));
     }
 
     /**
@@ -93,10 +93,10 @@ class TrainingActivityController extends Controller
      */
     public function edit($id)
     {
+        $skills = Skill::all();
         $competitorData = User::where('profile', 'competitor')->get();
-
         $FindData = TrainingActivity::where('id', $id)->get()->first();
-        return view('Training.Edit', compact(['FindData', 'competitorData']));
+        return view('Training.Edit', compact(['FindData', 'competitorData', 'skills']));
     }
 
     /**

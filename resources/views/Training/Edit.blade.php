@@ -26,9 +26,9 @@
                 <option value="">Select A Skill</option>
                 <option selected
                     value="{{ $FindData->skill }}">{{ $FindData->skill }}</option>
-                <option value="skillOne">skillOne</option>
-                <option value="skillTwo">skillTwo</option>
-                <option value="skillThree">skillThree</option>
+                @foreach ($skill as $skill)
+                <option value="{{$skill->name}}">{{$skill->name}}</option>
+                @endforeach
             </select>
         </div>
 
