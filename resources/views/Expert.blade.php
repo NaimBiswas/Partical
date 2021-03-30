@@ -32,9 +32,11 @@
             </tr>
         </thead>
         <tbody>
+            <?php $i = ''; ?>
             @foreach ($data as $item)
+
             <tr>
-                <td class="border px-4 py-2">{{$item->id}}</td>
+                <td class="border px-4 py-2"><?php echo ++$i;  ?></td>
                 <td class="border px-4 py-2">{{$item->title}}</td>
                 <td class="border px-4 py-2">{{$item->skill}}</td>
                 <td class="border px-4 py-2">{{$item->start_date}}</td>
@@ -47,7 +49,7 @@
                         Edit
                     </a>
 
-                    <a href="{{Route('register-activity')}}"
+                    <a href="{{Route('detele-activity', $item->id)}}"
                         class="my-2 mx-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                         Delete
                     </a>

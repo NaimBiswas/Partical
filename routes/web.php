@@ -32,3 +32,5 @@ Route::post('/register-training', [TrainingActivityController::class, 'store'])-
 Route::get('/edit-shedule/{id}', [TrainingActivityController::class, 'edit'])->name('edit-shedule');
 
 Route::post('/update-shedule/{id}', [TrainingActivityController::class, 'update'])->name('update-shedule');
+
+Route::any('/detele-activity/{id}', [TrainingActivityController::class, 'destroy'])->name('detele-activity');

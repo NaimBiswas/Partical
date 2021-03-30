@@ -121,8 +121,9 @@ class TrainingActivityController extends Controller
      * @param  \App\Models\TrainingActivity  $trainingActivity
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TrainingActivity $trainingActivity)
+    public function destroy($id)
     {
-        //
+        TrainingActivity::where('id', $id)->get()->first()->delete();
+        return redirect()->back()->with('success', 'Post Deleted Success');
     }
 }

@@ -9,7 +9,7 @@ class DashboradController extends Controller
 {
     public function index()
     {
-        $data = TrainingActivity::all();
+        $data = TrainingActivity::orderBy('start_date', 'ASC')->get();;
         return view('Expert', compact('data'));
     }
 }
