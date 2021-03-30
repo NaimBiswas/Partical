@@ -35,6 +35,7 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
+        // create skill
         $this->validate($request, [
             'name' => 'required|unique:skills,name',
         ]);
@@ -45,27 +46,6 @@ class SkillController extends Controller
         return back()->with('success', 'Successfully Added a Skill');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Skill  $skill
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Skill $skill)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Skill  $skill
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Skill $skill)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -87,6 +67,7 @@ class SkillController extends Controller
      */
     public function destroy($id)
     {
+        // destroy skill
 
         Skill::where('id', $id)->get()->first()->delete();
         return redirect()->back()->with('success', 'Skill Deleted Success');

@@ -14,7 +14,7 @@
         enctype="multipart/form-data"
         action="{{ route('register-training') }}">
         @csrf
-
+        {{-- skill  --}}
         <div class="mb-4 mx-4">
             <x-jet-label for="skill"
                 value="{{ __('Choose  Skill') }}" />
@@ -29,7 +29,7 @@
                 @endforeach
             </select>
         </div>
-
+        {{-- title  --}}
         <div class="mb-4 mx-4">
             <x-jet-label for="title"
                 value="{{ __('Set Your Title') }}" />
@@ -43,7 +43,7 @@
                 autofocus />
 
         </div>
-
+        {{-- description  --}}
         <div class="mb-4 mx-4">
             <x-jet-label for="description"
                 value="{{ __('Put Your Description') }}" />
@@ -59,7 +59,7 @@
             </textarea>
 
         </div>
-
+        {{-- start Date  --}}
         <div class="flex flex-wrap justify-between">
 
             <div class="mb-4 mx-4 grid-cols-6">
@@ -73,7 +73,7 @@
                     required
                     autofocus />
             </div>
-
+            {{-- end date  --}}
             <div class="mb-4 mx-4">
                 <x-jet-label for="end_date"
                     value="{{ __('Choose  End Date') }}" />
@@ -87,7 +87,7 @@
             </div>
 
         </div>
-
+        {{-- Participants --}}
         <div class="mb-4 mx-4">
             <x-jet-label for="skill"
                 value="{{ __('Choose  Participants') }}" />

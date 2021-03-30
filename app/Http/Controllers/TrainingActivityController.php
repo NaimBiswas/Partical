@@ -42,8 +42,7 @@ class TrainingActivityController extends Controller
     public function store(Request $request)
 
     {
-        //     dd($request);
-        //     exit;
+        // validation
 
         $this->validate($request, [
             'title' => 'required|unique:training_activities,title|max:200',
@@ -55,14 +54,7 @@ class TrainingActivityController extends Controller
         ]);
 
 
-        // TrainingActivity::create([
-        //     'skill' => $request->skill,
-        //     'title' => $request->title,
-        //     'description' => $request->description,
-        //     'start_date' => $request->start_date,
-        //     'end_date' => $request->end_date,
-        //     'participants' => json_encode($request->participants),
-        // ]);
+        // store data in database
 
         $input = $request->all();
         $participants = $input['participants'];
@@ -93,6 +85,7 @@ class TrainingActivityController extends Controller
      */
     public function edit($id)
     {
+        // edit info
         $skills = Skill::all();
         $competitorData = User::where('profile', 'competitor')->get();
         $FindData = TrainingActivity::where('id', $id)->get()->first();
@@ -108,6 +101,7 @@ class TrainingActivityController extends Controller
      */
     public function update(Request $request,  $id)
     {
+        // update validation
         $this->validate($request, [
             'title' => 'required|max:200',
             'skill' => 'required',
@@ -117,27 +111,10 @@ class TrainingActivityController extends Controller
             'participants' => 'required',
         ]);
 
-        // $trainingActivity->skill = $request->skill;
-        // $trainingActivity->title = $request->title;
-        // $trainingActivity->description = $request->description;
-        // $trainingActivity->start_date = $request->start_date;
-        // $trainingActivity->end_date = $request->end_date;
-
-        // $participant = $request->input('participants');
-        // $participant['participants'] = implode(',', $participant);
-
-        // return $participant;
-        // $trainingActivity->participants = $participant;
 
 
 
-
-
-        // $trainingActivity->save();
-
-
-
-
+        // update data
 
         $input = $request->all();
         $participants = $input['$trainingActivity->'];
@@ -160,6 +137,7 @@ class TrainingActivityController extends Controller
      */
     public function destroy($id)
     {
+        // destroy data
         TrainingActivity::where('id', $id)->get()->first()->delete();
         return redirect()->back()->with('success', 'Post Deleted Success');
     }
