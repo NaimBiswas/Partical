@@ -85,8 +85,10 @@ class SkillController extends Controller
      * @param  \App\Models\Skill  $skill
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Skill $skill)
+    public function destroy($id)
     {
-        //
+
+        Skill::where('id', $id)->get()->first()->delete();
+        return redirect()->back()->with('success', 'Skill Deleted Success');
     }
 }

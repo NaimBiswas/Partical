@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 // This is Home Page
 
 Route::get('/', function () {
-   return view('welcome');
+    return view('welcome');
 });
 
 // For Home Page
@@ -43,3 +43,5 @@ Route::any('/detele-activity/{id}', [TrainingActivityController::class, 'destroy
 Route::get('/skill', [SkillController::class, 'index'])->name('skill');
 
 Route::post('/add-skill', [SkillController::class, 'store'])->name('add-skill');
+
+Route::any('/detele-skill/{id}', [SkillController::class, 'destroy'])->name('detele-skill');

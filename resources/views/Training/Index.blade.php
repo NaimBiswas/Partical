@@ -100,7 +100,7 @@
                 <option class="bg-red-500"
                     value="">Select Participants</option>
                 @foreach ($competitorData as $item)
-                <option value="{{$item->name}}">{{$item->name}}</option>
+                <option value="{{ $item->name }}"> {{$item->name}} </option>
                 @endforeach
             </select>
         </div>

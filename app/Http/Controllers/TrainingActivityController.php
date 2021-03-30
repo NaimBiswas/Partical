@@ -55,22 +55,22 @@ class TrainingActivityController extends Controller
         ]);
 
 
-
-
-        $input = $request->all();
-        $participants = $input['participants'];
-        $input['participants'] = implode(',', $participants);
-
-        TrainingActivity::create($input);
-
-        // TrainingActivity::Create([
+        // TrainingActivity::create([
         //     'skill' => $request->skill,
         //     'title' => $request->title,
         //     'description' => $request->description,
         //     'start_date' => $request->start_date,
         //     'end_date' => $request->end_date,
-        //     'participants' => $request->participants,
+        //     'participants' => json_encode($request->participants),
         // ]);
+
+        $input = $request->all();
+        $participants = $input['participants'];
+        $input['participants'] = implode(', ', $participants);
+
+        TrainingActivity::create($input);
+
+
         return redirect()->back()->with("success", 'Successfully Create A Shedule');
     }
 

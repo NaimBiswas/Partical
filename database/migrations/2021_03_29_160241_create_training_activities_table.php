@@ -17,10 +17,10 @@ class CreateTrainingActivitiesTable extends Migration
             $table->id();
             $table->string('skill');
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
             $table->string('start_date');
             $table->string('end_date');
-            $table->text("participants");
+            $table->longText("participants");
             $table->timestamps();
         });
     }
