@@ -17,7 +17,7 @@
     <h2 class="m-4 text-gray-700 text-center">Show All Shedule</h2>
 
 
-    <table class="table-auto m-auto mb-5">
+    <table class=" m-auto mb-5">
         <thead>
             <tr>
                 <th class="px-4 py-2">ID</th>
@@ -41,11 +41,12 @@
                 <td class="border px-4 py-2">{{$item->skill}}</td>
                 <td class="border px-4 py-2">{{$item->start_date}}</td>
                 <td class="border px-4 py-2">{{$item->end_date}}</td>
-                <td class="border px-4 py-2">{{$item->participants}}</td>
+                <td style="width: 100px"
+                    class="border px-4 py-2">{{$item->participants}}</td>
                 @if (Auth::user()->profile == 'expert')
                 <td class="border px-4 py-2 mt-2">
                     <a href="{{Route('edit-shedule' , $item->id)}}"
-                        class=" my-2 mx-2 bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        class=" my-2 mx-2 bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-5">
                         Edit
                     </a>
 

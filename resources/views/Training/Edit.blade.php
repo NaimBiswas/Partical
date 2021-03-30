@@ -101,9 +101,9 @@
                 <option value="">Select Participants</option>
                 <option selected
                     value="{{ $FindData->participants }}">{{ $FindData->participants }}</option>
-                <option value="skillOne">skillOne</option>
-                <option value="skillTwo">skillTwo</option>
-                <option value="skillThree">skillThree</option>
+                @foreach ($competitorData as $item)
+                <option value="{{$item->name}}">{{$item->name}}</option>
+                @endforeach
             </select>
         </div>
 

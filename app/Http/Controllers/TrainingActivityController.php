@@ -94,9 +94,9 @@ class TrainingActivityController extends Controller
     public function edit($id)
     {
         $competitorData = User::where('profile', 'competitor')->get();
-        dd($competitorData);
+
         $FindData = TrainingActivity::where('id', $id)->get()->first();
-        return view('Training.Edit', compact('FindData'));
+        return view('Training.Edit', compact(['FindData', 'competitorData']));
     }
 
     /**
