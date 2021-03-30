@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboradController;
+use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TrainingActivityController;
 use App\Models\TrainingActivity;
 use Illuminate\Support\Facades\Route;
@@ -34,3 +35,7 @@ Route::get('/edit-shedule/{id}', [TrainingActivityController::class, 'edit'])->n
 Route::post('/update-shedule/{id}', [TrainingActivityController::class, 'update'])->name('update-shedule');
 
 Route::any('/detele-activity/{id}', [TrainingActivityController::class, 'destroy'])->name('detele-activity');
+
+
+
+Route::get('/skill', [SkillController::class, 'index'])->name('skill');
