@@ -1,10 +1,12 @@
 <x-guest-layout>
-    <x-jet-authentication-card>
+    <x-jet-authentication-card class="">
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <img class="h-48 w-48 mt-4 "
+                src="{{asset('NaimBiswas.png')}}"
+                alt="">
         </x-slot>
 
-        <x-jet-validation-errors class="mb-4" />
+        <x-jet-validation-errors class="mb-6" />
 
         <form method="POST"
             action="{{ route('register') }}">
@@ -111,10 +113,12 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-jet-button class="ml-4">
+                <x-jet-button class="ml-4 ">
                     {{ __('Register') }}
                 </x-jet-button>
             </div>
         </form>
+
     </x-jet-authentication-card>
+    <div class="pb-10 bg-gray-100"></div>
 </x-guest-layout>
