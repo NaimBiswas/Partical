@@ -79,6 +79,8 @@
 </div>
 
 
+@if (Auth::user()->profile === !'competitor')
+
 
 {{-- skill table here  --}}
 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-5">
@@ -121,4 +123,6 @@
     </table>
 
 </div>
+
+@endif
 @endsection
