@@ -16,8 +16,11 @@ class TrainingActivityController extends Controller
      */
     public function index()
     {
+        $competitorData = User::where('profile', 'competitor')->get();
+
+
         $data = TrainingActivity::all();
-        return view('Training.Index', compact('data'));
+        return view('Training.Index', compact(['data', 'competitorData']));
     }
 
     /**
