@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Validator;
 use App\Models\TrainingActivity;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TrainingActivityController extends Controller
@@ -49,10 +50,8 @@ class TrainingActivityController extends Controller
             'end_date' => 'required',
             'participants' => 'required',
         ]);
-        // $this->validate($request, [
-        //     'name' => 'required|min:3|unique:categories,name',
-        //     'images' => 'required',
-        // ]);
+
+
 
 
         $input = $request->all();
@@ -91,6 +90,8 @@ class TrainingActivityController extends Controller
      */
     public function edit($id)
     {
+        $competitorData = User::where('profile', 'competitor')->get();
+        dd($competitorData);
         $FindData = TrainingActivity::where('id', $id)->get()->first();
         return view('Training.Edit', compact('FindData'));
     }
