@@ -11,6 +11,7 @@
 
 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg ">
     <form method="POST"
+        enctype="multipart/form-data"
         action="{{ route('update-shedule', $FindData->id) }}">
         @csrf
 
@@ -93,7 +94,8 @@
                 value="{{ __('Choose  Participants') }}" />
 
             <select class="block mt-1 w-full"
-                name="participants"
+                multiple
+                name="participants[]"
                 autofocus
                 id="">
                 <option value="">Select Participants</option>

@@ -36,7 +36,10 @@ class TrainingActivityController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+
     {
+        //     dd($request);
+        //     exit;
 
         $this->validate($request, [
             'title' => 'required|unique:training_activities,title|max:200',
@@ -52,15 +55,20 @@ class TrainingActivityController extends Controller
         // ]);
 
 
+        $input = $request->all();
+        $participants = $input['participants'];
+        $input['participants'] = implode(',', $participants);
 
-        TrainingActivity::Create([
-            'skill' => $request->skill,
-            'title' => $request->title,
-            'description' => $request->description,
-            'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
-            'participants' => $request->participants,
-        ]);
+        TrainingActivity::create($input);
+
+        // TrainingActivity::Create([
+        //     'skill' => $request->skill,
+        //     'title' => $request->title,
+        //     'description' => $request->description,
+        //     'start_date' => $request->start_date,
+        //     'end_date' => $request->end_date,
+        //     'participants' => $request->participants,
+        // ]);
         return redirect()->back()->with("success", 'Successfully Create A Shedule');
     }
 
@@ -94,7 +102,7 @@ class TrainingActivityController extends Controller
      * @param  \App\Models\TrainingActivity  $trainingActivity
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TrainingActivity $trainingActivity)
+    public function update(Request $request,  $id)
     {
         $this->validate($request, [
             'title' => 'required|max:200',
@@ -105,13 +113,38 @@ class TrainingActivityController extends Controller
             'participants' => 'required',
         ]);
 
-        $trainingActivity->skill = $request->skill;
-        $trainingActivity->title = $request->title;
-        $trainingActivity->description = $request->description;
-        $trainingActivity->start_date = $request->start_date;
-        $trainingActivity->end_date = $request->end_date;
-        $trainingActivity->participants = $request->participants;
-        $trainingActivity->save();
+        // $trainingActivity->skill = $request->skill;
+        // $trainingActivity->title = $request->title;
+        // $trainingActivity->description = $request->description;
+        // $trainingActivity->start_date = $request->start_date;
+        // $trainingActivity->end_date = $request->end_date;
+
+        // $participant = $request->input('participants');
+        // $participant['participants'] = implode(',', $participant);
+
+        // return $participant;
+        // $trainingActivity->participants = $participant;
+
+
+
+
+
+        // $trainingActivity->save();
+
+
+
+
+
+        $input = $request->all();
+        $participants = $input['participants'];
+        $input['participants'] = implode(',', $participants);
+
+
+        TrainingActivity::Create($input);
+
+        TrainingActivity::where('id', $id)->get()->first()->delete();
+
+
         return redirect()->route('dashboard')->with('success', ' Post Updated Success');
     }
 

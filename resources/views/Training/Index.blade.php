@@ -11,6 +11,7 @@
 
 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg ">
     <form method="POST"
+        enctype="multipart/form-data"
         action="{{ route('register-training') }}">
         @csrf
 
@@ -95,9 +96,10 @@
                 value="{{ __('Choose  Participants') }}" />
 
             <select class="block mt-1 w-full"
-                name="participants"
+                name="participants[]"
                 autofocus
-                id="">
+                id=""
+                multiple>
                 <option value="">Select Participants</option>
                 <option value="skillOne">skillOne</option>
                 <option value="skillTwo">skillTwo</option>
